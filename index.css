@@ -5,7 +5,130 @@
 }
 
 body{
+    padding:0px 8rem 10px 8rem;
+    font-family: "Poppins",sans-serif;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding:20px 30px;
+    align-items: center;
+    padding-right: 5rem;
+    border: 1px solid lightgray;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.star{
+    width:18px;
+    height: 18px;
+    color:white;
+    font-size: 12px;
+    background-color: rgb(24,140,62);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.res-logo{
+    width:100px;
+}
+
+#logo{
+    width: 100%;
+}
+
+.nav-items>ul{
+    display: flex;
+    column-gap: 30px;
+    list-style-type: none;
+}
+
+.nav-items>ul>li{
+    font-size: 16px;
+}
+
+
+.resto-card{
+      display: grid;
+      width:200px;
+      grid-auto-flow:row;
+      row-gap: 8px;
+      /* grid-template-rows: 1fr 1fr; */
+    transition: transform 0.2s ease;
+}
+
+.time{
+    font-weight: 500;
+}
+
+.location-cuisine{
+    color:rgb(124,126,129);
+    line-height: 22px;
+    /* font-size: 14px; */
+}
+
+.food-img{
+    width:100%;
+    border: 0.1rem solid white;
+}
+
+.resto-card:hover{
+    /* border:1px solid black; */
+    transform: scale(0.98);
+    cursor: pointer;
+
+}
+
+.food-img  #resto-img{
+    width:100%;
+    /* height:40%; */
+    height: 140px;
+
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+
+.resto-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap:15px;
+}
+
+.resto-card .cuisine{
+        overflow: hidden;
+        width: 100%;
+        display: -webkit-box;
+        overflow-wrap: break-word;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;    
+        font-size: 16px;
+}
+
+.rate-duration{
+    display: flex;
+    column-gap: 4px; 
+    align-items: center;
+}
+
+.info{
+    width:100%;
+    margin-left: 5px;
+
+}
+
+.restName{
+    font-weight: 600;
+    width:197px;
+    white-space:nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* font-size: 16px; */
+}
+
+#star{
+    color:black;
 }
