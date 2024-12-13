@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import useInternetStatus from "../utils/useInternetStatus";
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const { loggedInUser } = useContext(userContext);
+  const cartItems = useSelector((store) => store.cart.items);
 
   const status = useInternetStatus();
 
@@ -29,7 +31,10 @@ const Header = () => {
           <li>
             <Link to="/contact">ContactUs</Link>
           </li>
-          <li>Cart</li>
+          <li>
+            <Link to={"/cart"}>Cart({cartItems.length})</Link>
+          </li>
+          {/* {console.log("length", cartItems.length)} */}
           <button
             onClick={() => {
               btnName == "Login" ? setBtnName("Logout") : setBtnName("Login");

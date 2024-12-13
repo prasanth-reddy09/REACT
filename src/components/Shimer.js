@@ -1,7 +1,7 @@
 const Shimmer = () => {
   return (
     <div id="main">
-      <div id="spinner"></div>
+      <div id="spinner">Hello World Still Loading. ..</div>
     </div>
   );
 };

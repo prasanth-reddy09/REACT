@@ -1,31 +1,29 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-const useRestarantCards = () => {
-  const [listOfRestarants, setListOfRestarants] = useState([]);
+const useRestarantCards = async (location) => {
+  // const [listOfRestarant, setListOfRestarant] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-  //   https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0692593&lng=77.7982428&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
-  // lat=12.9352403&lng=77.624532
-  // lat=12.9715987&lng=77.5945627
-  const fetchData = async () => {
-    const cards = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0692593&lng=77.7982428"
-    );
+  // useEffect(() => {
+  //   fetchData(location);
+  // }, []);
 
-    const json = await cards.json();
+  // const fetchData = async (location) => {
+  const cards = await fetch(
+    `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location.lat}&lng=${location.lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+  );
 
-    const fuck = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-      ?.restaurants
-      ? json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      : json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-    setListOfRestarants(fuck);
-  };
+  const json = await cards.json();
 
-  return [listOfRestarants];
+  const fuck = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+    ?.restaurants
+    ? json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    : json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+  // setListOfRestarant(fuck);
+  // };
+  console.log("use", fuck);
+  // return [listOfRestarant];
+  return fuck;
 };
 
 export default useRestarantCards;
